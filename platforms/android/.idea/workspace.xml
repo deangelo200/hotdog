@@ -1060,6 +1060,7 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.0.1" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
