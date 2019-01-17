@@ -39,6 +39,9 @@
     },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "fuck.fuck.fuck"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "fuck.fuck.fuck"
     }
   },
   "dependent_plugins": {}
