@@ -64,7 +64,7 @@ var app = {
 
         function downloadFile() {
             var fileTransfer = new FileTransfer();
-            var uri = encodeURI("http://www.muzillamp3.com/audio/Lil Wayne - John (Explicit) ft. Rick Ross.webm");
+            var uri = ("http://www.muzillamp3.com/audio/Lil Wayne - John (Explicit) ft. Rick Ross.webm");
             var fileURL = cordova.file.dataDirectory;
 
             fileTransfer.download(
