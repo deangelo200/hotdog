@@ -35,6 +35,13 @@
     <feature name="Vibration">
         <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
     </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>HelloHell</name>
     <description>
         Hello World sample application that responds to the deviceready event.
@@ -43,7 +50,9 @@
         PhoneGap Team
     </author>
     <content src="index.html" />
-    <access origin="*" />
+    <access origin="*" subdomains="true" />
+    <access origin="http://youtube.com" />
+    <access origin="http://muzillamp3.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -72,7 +81,5 @@
     <preference name="loglevel" value="DEBUG" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-    <feature name="FileTransfer">
-        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
-    </feature>
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 </widget>

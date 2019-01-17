@@ -1,0 +1,14 @@
+{
+  "name": "fuck.fuck.fuck",
+  "version": "1.0.0",
+  "displayName": "HelloHell",
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {
+    "cordova-android": "~7.1.4",
+    "cordova-plugin-whitelist": "^1.3.3"
+  }
+}

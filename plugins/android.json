@@ -42,6 +42,9 @@
     },
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "fuck.fuck.fuck"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "fuck.fuck.fuck"
     }
   },
   "dependent_plugins": {}

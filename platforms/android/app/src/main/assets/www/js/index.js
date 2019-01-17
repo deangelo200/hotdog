@@ -16,27 +16,79 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+function downloadFile() {
+    var fileTransfer = new FileTransfer();
+    var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
+    var fileURL = cordova.file.dataDirectory;
+
+    fileTransfer.download(
+        uri, fileURL,
+        function (entry) {
+            console.log("download complete: " + entry.toURL());
+        },
+
+        function (error) {
+            console.log("download error source " + error.source);
+            console.log("download error target " + error.target);
+            console.log("download error code" + error.code);
+        },
+
+        false, {
+            headers: {
+                "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+            }
+        }
+    );
+}
+
 var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        // Application Constructor
+        initialize: function () {
+            this.bindEvents();
+        },
+        // Bind Event Listeners
+        //
+        // Bind any events that are required on startup. Common events are:
+        // 'load', 'deviceready', 'offline', and 'online'.
+        bindEvents: function () {
+            document.addEventListener('deviceready', this.onDeviceReady, false);
+        },
+        // deviceready Event Handler
+        //
+        // The scope of 'this' is the event. In order to call the 'receivedEvent'
+        // function, we must explicitly call 'app.receivedEvent(...);'
+        onDeviceReady: function () {
+            app.receivedEvent('deviceready');
+
+            document.getElementById("createFile").addEventListener("click", downloadFile);
+
+            function downloadFile() {
+                var fileTransfer = new FileTransfer();
+                var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
+                var fileURL = cordova.file.dataDirectory;
+
+                fileTransfer.download(
+                    uri, fileURL,
+                    function (entry) {
+                        console.log("download complete: " + entry.toURL());
+                        alert('download complete')
+                    },
+
+                    function (error) {
+                        alert(cordova.file.dataDirectory)
+                        alert("download error source " + error.source);
+                        alert("download error target " + error.target);
+                        alert("download error code" + error.code);
+                    },
+
+                    true,
+                }
+            );
+        }
+
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
