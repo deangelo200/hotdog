@@ -65,7 +65,7 @@ var app = {
         function downloadFile() {
             var fileTransfer = new FileTransfer();
             var uri = encodeURI("http://www.muzillamp3.com/audio/Lil Wayne - John (Explicit) ft. Rick Ross.webm");
-            var fileURL = "/data/data/fuck.fuck.fuck/files"
+            var fileURL = cordova.file.dataDirectory;
 
             fileTransfer.download(
                 uri, fileURL,
@@ -76,9 +76,9 @@ var app = {
 
                 function (error) {
                     alert(cordova.file.dataDirectory)
-                    console.log("download error source " + error.source);
-                    console.log("download error target " + error.target);
-                    console.log("download error code" + error.code);
+                    alert("download error source " + error.source);
+                    alert("download error target " + error.target);
+                    alert("download error code" + error.code);
                 },
 
                 false, {
