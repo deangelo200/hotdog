@@ -16,6 +16,31 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+function downloadFile() {
+    var fileTransfer = new FileTransfer();
+    var uri = encodeURI("http://www.muzillamp3.com/audio/Lil Wayne - John (Explicit) ft. Rick Ross.webm");
+    var fileURL = cordova.file.dataDirectory;
+
+    fileTransfer.download(
+        uri, fileURL,
+        function (entry) {
+            console.log("download complete: " + entry.toURL());
+        },
+
+        function (error) {
+            console.log("download error source " + error.source);
+            console.log("download error target " + error.target);
+            console.log("download error code" + error.code);
+        },
+
+        false, {
+            headers: {
+                "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+            }
+        }
+    );
+}
+
 var app = {
     // Application Constructor
     initialize: function () {
@@ -37,24 +62,29 @@ var app = {
         alert("hi")
         document.getElementById("createFile").addEventListener("click", createFile);
 
-        function createFile() {
-            var type = window.TEMPORARY;
-            var size = 5 * 1024 * 1024;
-            window.requestFileSystem(type, size, successCallback, errorCallback)
+        function downloadFile() {
+            var fileTransfer = new FileTransfer();
+            var uri = encodeURI("http://www.muzillamp3.com/audio/Lil Wayne - John (Explicit) ft. Rick Ross.webm");
+            var fileURL = cordova.file.dataDirectory;
 
-            function successCallback(fs) {
-                fs.root.getFile('log.txt', {
-                    create: true,
-                    exclusive: true
-                }, function (fileEntry) {
-                    alert('File creation successfull!')
-                }, errorCallback);
-            }
+            fileTransfer.download(
+                uri, fileURL,
+                function (entry) {
+                    console.log("download complete: " + entry.toURL());
+                },
 
-            function errorCallback(error) {
-                alert("ERROR: " + error.code)
-            }
+                function (error) {
+                    console.log("download error source " + error.source);
+                    console.log("download error target " + error.target);
+                    console.log("download error code" + error.code);
+                },
 
+                false, {
+                    headers: {
+                        "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+                    }
+                }
+            );
         }
 
     },
