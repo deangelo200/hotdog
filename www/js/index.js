@@ -34,7 +34,29 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
-        alert(cordova.file)
+        alert("hi")
+        document.getElementById("createFile").addEventListener("click", createFile);
+
+        function createFile() {
+            var type = window.TEMPORARY;
+            var size = 5 * 1024 * 1024;
+            window.requestFileSystem(type, size, successCallback, errorCallback)
+
+            function successCallback(fs) {
+                fs.root.getFile('log.txt', {
+                    create: true,
+                    exclusive: true
+                }, function (fileEntry) {
+                    alert('File creation successfull!')
+                }, errorCallback);
+            }
+
+            function errorCallback(error) {
+                alert("ERROR: " + error.code)
+            }
+
+        }
+
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {
