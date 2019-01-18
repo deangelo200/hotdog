@@ -21,9 +21,10 @@
 
 function downloadFile() {
 
+
     var fileTransfer = new FileTransfer();
     var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-
+    alert("bhhh")
     fileTransfer.download(
         uri,
         fileURL,
@@ -37,12 +38,11 @@ function downloadFile() {
             console.log("download error target " + error.target);
             console.log("download error code" + error.code);
         },
-        true
-        //            false, {
-        //                headers: {
-        //                    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-        //                }
-        //            }
+        false, {
+            headers: {
+                "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+            }
+        }
     );
 
 
