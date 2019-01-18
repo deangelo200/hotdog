@@ -16,30 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-function downloadFile() {
-    var fileTransfer = new FileTransfer();
-    var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-    var fileURL = cordova.file.dataDirectory;
 
-    fileTransfer.download(
-        uri, fileURL,
-        function (entry) {
-            console.log("download complete: " + entry.toURL());
-        },
-
-        function (error) {
-            console.log("download error source " + error.source);
-            console.log("download error target " + error.target);
-            console.log("download error code" + error.code);
-        },
-
-        false, {
-            headers: {
-                "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-            }
-        }
-    );
+function filetest(){
+     alert(FileTransfer);
 }
+
 
 var app = {
         // Application Constructor
@@ -60,30 +41,9 @@ var app = {
         onDeviceReady: function () {
             app.receivedEvent('deviceready');
 
-            document.getElementById("createFile").addEventListener("click", downloadFile);
+             document.getElementById("createFile").addEventListener("click", filetest);
 
-            function downloadFile() {
-                var fileTransfer = new FileTransfer();
-                var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-                var fileURL = cordova.file.dataDirectory;
 
-                fileTransfer.download(
-                    uri, fileURL,
-                    function (entry) {
-                        console.log("download complete: " + entry.toURL());
-                        alert('download complete')
-                    },
-
-                    function (error) {
-                        alert(cordova.file.dataDirectory)
-                        alert("download error source " + error.source);
-                        alert("download error target " + error.target);
-                        alert("download error code" + error.code);
-                    },
-
-                    true,
-                }
-            );
         }
 
     },

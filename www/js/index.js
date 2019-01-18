@@ -17,6 +17,11 @@
  * under the License.
  */
 
+function test() {
+    alert(FileTransfer);
+    alert("hi")
+}
+
 var app = {
         // Application Constructor
         initialize: function () {
@@ -36,8 +41,8 @@ var app = {
         onDeviceReady: function () {
             app.receivedEvent('deviceready');
 
-            //            document.getElementById("createFile").addEventListener("click", downloadFile);
-            alert(FileTransfer);
+            document.getElementById("createFile").addEventListener("click", test);
+
 
         }
 
