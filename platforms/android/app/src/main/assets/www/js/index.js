@@ -17,11 +17,6 @@
  * under the License.
  */
 
-function filetest(){
-     alert(FileTransfer);
-}
-
-
 var app = {
         // Application Constructor
         initialize: function () {
@@ -41,9 +36,30 @@ var app = {
         onDeviceReady: function () {
             app.receivedEvent('deviceready');
 
-             document.getElementById("createFile").addEventListener("click", filetest);
+            document.getElementById("createFile").addEventListener("click", downloadFile);
 
+            function downloadFile() {
+                var fileTransfer = new FileTransfer();
+                var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
+                var fileURL = cordova.file.dataDirectory;
 
+                fileTransfer.download(
+                    uri, fileURL,
+                    function (entry) {
+                        console.log("download complete: " + entry.toURL());
+                        alert('download complete')
+                    },
+
+                    function (error) {
+                        alert(cordova.file.dataDirectory)
+                        alert("download error source " + error.source);
+                        alert("download error target " + error.target);
+                        alert("download error code" + error.code);
+                    },
+
+                    true,
+                }
+            );
         }
 
     },
@@ -59,3 +75,5 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+app.initialize();
