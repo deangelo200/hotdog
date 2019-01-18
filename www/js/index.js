@@ -37,7 +37,7 @@ var app = {
             app.receivedEvent('deviceready');
 
             //            document.getElementById("createFile").addEventListener("click", downloadFile);
-            console.log(FileTransfer);
+            alert(FileTransfer);
 
         }
 
