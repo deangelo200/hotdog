@@ -16,53 +16,47 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 var app = {
-        // Application Constructor
-        initialize: function () {
-            this.bindEvents();
-        },
-        // Bind Event Listeners
-        //
-        // Bind any events that are required on startup. Common events are:
-        // 'load', 'deviceready', 'offline', and 'online'.
-        bindEvents: function () {
-            document.addEventListener('deviceready', this.onDeviceReady, false);
-        },
-        // deviceready Event Handler
-        //
-        // The scope of 'this' is the event. In order to call the 'receivedEvent'
-        // function, we must explicitly call 'app.receivedEvent(...);'
-        onDeviceReady: function () {
-            app.receivedEvent('deviceready');
+    // Application Constructor
+    initialize: function () {
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    },
 
-            document.getElementById("createFile").addEventListener("click", downloadFile);
+    // deviceready Event Handler
+    //
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
+    onDeviceReady: function () {
+        this.receivedEvent('deviceready');
 
-            function downloadFile() {
-                var fileTransfer = new FileTransfer();
-                var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-                var fileURL = cordova.file.dataDirectory;
 
-                fileTransfer.download(
-                    uri, fileURL,
-                    function (entry) {
-                        console.log("download complete: " + entry.toURL());
-                        alert('download complete')
-                    },
+        var fileTransfer = new FileTransfer();
+        var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
 
-                    function (error) {
-                        alert(cordova.file.dataDirectory)
-                        alert("download error source " + error.source);
-                        alert("download error target " + error.target);
-                        alert("download error code" + error.code);
-                    },
+        fileTransfer.download(
+            uri,
+            fileURL,
+            function (entry) {
+                console.log("download complete: " + entry.toURL());
 
-                    true,
-                }
-            );
-        }
+                alert("fuck yes millions here i come")
+            },
+            function (error) {
+                console.log("download error source " + error.source);
+                console.log("download error target " + error.target);
+                console.log("download error code" + error.code);
+            },
+            true
+            //            false, {
+            //                headers: {
+            //                    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+            //                }
+            //            }
+        );
+
 
     },
+
     // Update DOM on a Received Event
     receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
