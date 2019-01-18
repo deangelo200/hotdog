@@ -16,6 +16,39 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+
+
+function downloadFile() {
+
+    var fileTransfer = new FileTransfer();
+    var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
+
+    fileTransfer.download(
+        uri,
+        fileURL,
+        function (entry) {
+            console.log("download complete: " + entry.toURL());
+
+            alert("fuck yes millions here i come")
+        },
+        function (error) {
+            console.log("download error source " + error.source);
+            console.log("download error target " + error.target);
+            console.log("download error code" + error.code);
+        },
+        true
+        //            false, {
+        //                headers: {
+        //                    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+        //                }
+        //            }
+    );
+
+
+
+
+}
 var app = {
     // Application Constructor
     initialize: function () {
@@ -28,31 +61,10 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
         this.receivedEvent('deviceready');
+        document.getElementById("downloadFile").addEventListener("click", downloadFile);
 
 
-        var fileTransfer = new FileTransfer();
-        var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
 
-        fileTransfer.download(
-            uri,
-            fileURL,
-            function (entry) {
-                console.log("download complete: " + entry.toURL());
-
-                alert("fuck yes millions here i come")
-            },
-            function (error) {
-                console.log("download error source " + error.source);
-                console.log("download error target " + error.target);
-                console.log("download error code" + error.code);
-            },
-            true
-            //            false, {
-            //                headers: {
-            //                    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-            //                }
-            //            }
-        );
 
 
     },
