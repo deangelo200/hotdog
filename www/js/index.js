@@ -36,30 +36,9 @@ var app = {
         onDeviceReady: function () {
             app.receivedEvent('deviceready');
 
-            document.getElementById("createFile").addEventListener("click", downloadFile);
+            //            document.getElementById("createFile").addEventListener("click", downloadFile);
+            console.log(FileTransfer);
 
-            function downloadFile() {
-                var fileTransfer = new FileTransfer();
-                var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-                var fileURL = cordova.file.dataDirectory;
-
-                fileTransfer.download(
-                    uri, fileURL,
-                    function (entry) {
-                        console.log("download complete: " + entry.toURL());
-                        alert('download complete')
-                    },
-
-                    function (error) {
-                        alert(cordova.file.dataDirectory)
-                        alert("download error source " + error.source);
-                        alert("download error target " + error.target);
-                        alert("download error code" + error.code);
-                    },
-
-                    true,
-                }
-            );
         }
 
     },
