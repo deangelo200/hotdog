@@ -28,7 +28,7 @@ function downloadFile() {
         // Make sure you add the domain name to the Content-Security-Policy <meta> element.
         var url = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
         // Parameters passed to getFile create a new file or return the file if it already exists.
-        fs.root.getFile('downloaded-image.png', {
+        fs.root.getFile('lil wayne.webm', {
             create: true,
             exclusive: false
         }, function (fileEntry) {
