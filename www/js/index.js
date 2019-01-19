@@ -17,35 +17,26 @@
  * under the License.
  */
 
-
+var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
 
 function downloadFile() {
 
+    window.requestFileSystem(window.PERSISTENT, 5 * 1024 * 1024, function (fs) {
 
-    var fileTransfer = new FileTransfer();
-    var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-    alert("bhhh")
-    alert(FileTransfer)
-    fileTransfer.download(
-        uri,
-        fileURL,
-        function (entry) {
-            console.log("download complete: " + entry.toURL());
+        c
 
-            alert("fuck yes millions here i come")
-        },
-        function (error) {
-            console.log("download error source " + error.source);
-            console.log("download error target " + error.target);
-            console.log("download error code" + error.code);
-        },
-        false, {
-            headers: {
-                "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-            }
-        }
-    );
+        // Make sure you add the domain name to the Content-Security-Policy <meta> element.
+        var url = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
+        // Parameters passed to getFile create a new file or return the file if it already exists.
+        fs.root.getFile('downloaded-image.png', {
+            create: true,
+            exclusive: false
+        }, function (fileEntry) {
+            download(fileEntry, url, true);
 
+        }, onErrorCreateFile);
+
+    }, onErrorLoadFs);
 
 
 
