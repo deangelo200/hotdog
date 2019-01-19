@@ -23,7 +23,7 @@ function downloadFile() {
 
     window.requestFileSystem(window.PERSISTENT, 5 * 1024 * 1024, function (fs) {
 
-        c
+
 
         // Make sure you add the domain name to the Content-Security-Policy <meta> element.
         var url = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
