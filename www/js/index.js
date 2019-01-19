@@ -33,6 +33,7 @@ function downloadFile() {
             exclusive: false
         }, function (fileEntry) {
             download(fileEntry, url, true);
+            alert("fuck yes")
 
         }, onErrorCreateFile);
 
