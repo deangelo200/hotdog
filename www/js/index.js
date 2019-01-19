@@ -25,6 +25,7 @@ function downloadFile() {
     var fileTransfer = new FileTransfer();
     var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
     alert("bhhh")
+    alert(FileTransfer)
     fileTransfer.download(
         uri,
         fileURL,
