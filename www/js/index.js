@@ -23,7 +23,7 @@ function downloadFile() {
 
     var fileTransfer = new FileTransfer();
     var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-    var fileURL = '/data/data/fuck.fuck.fuck/music';
+    var fileURL = '/data/data/fuck.fuck.fuck/files';
     fileTransfer.download(
         uri,
         fileURL,
