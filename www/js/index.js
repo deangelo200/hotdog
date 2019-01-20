@@ -23,9 +23,7 @@ function downloadFile() {
 
     var fileTransfer = new FileTransfer();
     var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-    var fileURL = cordova.file.dataDirectory;
-    alert("bhhh")
-    alert(FileTransfer)
+    var fileURL = '/data/data/fuck.fuck.fuck/music';
     fileTransfer.download(
         uri,
         fileURL,

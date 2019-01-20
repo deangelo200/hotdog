@@ -5,7 +5,10 @@
   "cordova": {
     "platforms": [
       "android"
-    ]
+    ],
+    "plugins": {
+      "cordova-plugin-file-transfer": {}
+    }
   },
   "dependencies": {
     "cordova-android": "~7.1.4",
