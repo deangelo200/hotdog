@@ -22,8 +22,8 @@ function downloadFile() {
 
 
     var fileTransfer = new FileTransfer();
-    var uri = encodeURI("http://www.muzillamp3.com/audio/lil wayne.webm");
-    var fileURL = '/data/data/fuck.fuck.fuck/music';
+    var uri = encodeURI("http://www.muzillamp3.com/audio/money.jpg");
+    var fileURL = cordova.file.externalDataDirectory + "pic.jpg";
     fileTransfer.download(
         uri,
         fileURL,
@@ -45,6 +45,10 @@ function downloadFile() {
 
 
 }
+
+
+
+
 var app = {
     // Application Constructor
     initialize: function () {
